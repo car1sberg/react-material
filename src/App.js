@@ -38,6 +38,7 @@ class App extends Component {
         <Footer 
           category={category}
           categories={categories}
+          getAllBookmarks={this.getAllBookmarks.bind(this)}
           getBookmarksByCategory={this.getBookmarksByCategory.bind(this)}
           onSelect={this.handleSelectedCategory.bind(this)} />
       </Fragment>

@@ -4,7 +4,7 @@ import { Paper, Tabs } from 'material-ui';
 import { Tab } from 'material-ui/Tabs';
 
 
-export default ({ categories, getBookmarksByCategory, onSelect, category }) => {
+export default ({ categories, getBookmarksByCategory, onSelect, category, getAllBookmarks }) => {
     console.log('category - ', category)
     const index = category 
         ? categories.findIndex(item => item === category) + 1
@@ -22,7 +22,7 @@ export default ({ categories, getBookmarksByCategory, onSelect, category }) => {
                 textColor="primary"
                 centered
             >
-            <Tab label="All" />
+            <Tab label="All" onClick={getAllBookmarks} />
             {categories.map(category => 
                 <Tab 
                     key={category.id}
