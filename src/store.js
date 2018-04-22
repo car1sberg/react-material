@@ -7,13 +7,13 @@ export const categories = [
 ]
 
 export const bookmarks = [
-    {id: 0, name: "WOOOOOW", url: "https://google.com", category: "Favorite"},
-    {id: 1, name: "HOOORAY", url: "https://google.com", category: "GoodStuff"},
-    {id: 2, name: "OMG", url: "https://google.com", category: "Favorite"},
-    {id: 3, name: "AC/DC", url: "https://google.com", category: "Music"},
-    {id: 4, name: "Friend Zone", url: "https://google.com", category: "Fun"},
-    {id: 5, name: "9GAG", url: "https://google.com", category: "Fun"},
-    {id: 6, name: "HolyCrap", url: "https://google.com", category: "Music"},
-    {id: 7, name: "Whaaaaat", url: "https://google.com", category: "GoodStuff"},
-    {id: 8, name: "Keep Calm", url: "https://google.com", category: "Favorite"}
+    {id: 0, name: "WOOOOOW", category: "Favorite"},
+    {id: 1, name: "HOOORAY", category: "GoodStuff"},
+    {id: 2, name: "OMG", category: "Favorite"},
+    {id: 3, name: "AC/DC", category: "Music"},
+    {id: 4, name: "Friend Zone", category: "Fun"},
+    {id: 5, name: "9GAG", category: "Fun"},
+    {id: 6, name: "HolyCrap", category: "Music"},
+    {id: 7, name: "Whaaaaat", category: "GoodStuff"},
+    {id: 8, name: "Keep Calm", category: "Favorite"}
 ]

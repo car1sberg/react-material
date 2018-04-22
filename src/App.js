@@ -8,28 +8,39 @@ import { categories, bookmarks } from './store';
 class App extends Component {
   state = {
     bookmarks,
-    categories
+    categories,
   }
 
-  getBookmarksByCategory(id) {
+  getBookmarksByCategory = (id) => {
     let currentCategory = categories.find(category => category.id === id);
     let filteredBookmarks = bookmarks.filter(bookmark => bookmark.category === currentCategory.name);
     this.setState({bookmarks: filteredBookmarks});
   }
 
-  getAllBookmarks() {
-    this.setState({bookmarks: bookmarks})
-  }
+  getAllBookmarks = () => this.setState({bookmarks: bookmarks});
 
-  handleSelectedCategory(category) {
-    this.setState({ category })
+
+  handleSelectedCategory = (category) => this.setState({ category });
+
+
+  handleBookmarkCreate = (bookmark) => {
+    this.setState(({ bookmarks }) => ({
+      bookmarks:
+      [
+        ...bookmarks,
+        bookmark
+      ]
+    }))
   }
 
   render() {
     const { bookmarks, category } = this.state;
     return (
       <Fragment>
-        <Header getAllBookmarks={this.getAllBookmarks.bind(this)} />
+        <Header 
+          getAllBookmarks={this.getAllBookmarks.bind(this)}
+          categories={categories}
+          onBookmarkCreate={this.handleBookmarkCreate.bind(this)} />
         <MainContent 
           category={category}
           categories={categories} 

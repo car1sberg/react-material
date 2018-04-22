@@ -4,7 +4,7 @@ import { AppBar, Toolbar, Typography } from 'material-ui';
 import CreateDialog from '../MainContent/Dialogs/Create';
 
 
-export default ({ getAllBookmarks }) => 
+export default ({ getAllBookmarks, categories, onBookmarkCreate }) => 
     <AppBar position="static">
         <Toolbar>
         <Typography 
@@ -14,6 +14,8 @@ export default ({ getAllBookmarks }) =>
             onClick={getAllBookmarks}>
             Booky manager
         </Typography>
-        <CreateDialog />
+        <CreateDialog 
+            categories={categories}
+            onCreate={onBookmarkCreate} />
         </Toolbar>
     </AppBar>

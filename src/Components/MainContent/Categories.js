@@ -23,10 +23,9 @@ function categoryList({ styles, categories, getBookmarksByCategory, classes, cat
             <MenuList>
                 {categories.map(item => {
                     return (
-                        <Fragment>
+                        <Fragment key={item.id}>
                             <MenuItem 
                                 className={classes.menuItem} 
-                                key={item.id}
                                 onClick={() => getBookmarksByCategory(item.id)} >
                                 <ListItemText 
                                     classes={{ primary: classes.primary }}
