@@ -15,16 +15,17 @@ const styles = {
     Bookmarks: { padding: 20, marginTop: 10, marginBottom: 10, marginRight: 16 }
 }
 
-export default ({ bookmarks, categories, getBookmarksByCategory, filteredBookmarks }) => {
+export default ({ bookmarks, categories, getBookmarksByCategory, filteredBookmarks, category }) => {
     return (
         <Grid container>
             <Grid item sm>
                 <Categories 
                     styles={styles} 
+                    category={category}
                     categories={categories} 
                     getBookmarksByCategory={getBookmarksByCategory} />
             </Grid>
-            <Grid item sm>
+            <Grid item sm className="bookmarksBlock">
                 <Bookmarks 
                     styles={styles}
                     bookmarks={bookmarks}

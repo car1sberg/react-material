@@ -31,6 +31,7 @@ class App extends Component {
       <Fragment>
         <Header getAllBookmarks={this.getAllBookmarks.bind(this)} />
         <MainContent 
+          category={category}
           categories={categories} 
           bookmarks={bookmarks}
           getBookmarksByCategory={this.getBookmarksByCategory.bind(this)} />

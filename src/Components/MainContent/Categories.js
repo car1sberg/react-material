@@ -1,18 +1,51 @@
-import React from 'react';
-import { Paper } from 'material-ui';
-import List, { ListItem, ListItemText } from 'material-ui/List';
+import React, { Fragment } from 'react';
+import { Paper, Divider } from 'material-ui';
+import { ListItemText } from 'material-ui/List';
+import { MenuList, MenuItem } from 'material-ui/Menu';
+import { withStyles } from 'material-ui/styles';
+import PropTypes from 'prop-types';
 
+const styles = theme => ({
+    menuItem: {
+      '&:focus': {
+        backgroundColor: theme.palette.primary.main,
+        '& $primary': {
+          color: theme.palette.common.white,
+        },
+      },
+    },
+    primary: {},
+  });
 
-export default ({ styles, categories, getBookmarksByCategory }) => 
-    <Paper style={styles.Categories}>
-        <List component="ul">
-            {categories.map(category => 
-                <ListItem 
-                    button 
-                    key={category.id}
-                    onClick={() => getBookmarksByCategory(category.id)}>
-                    <ListItemText primary={category.name} />
-                </ListItem>
-        )}
-        </List>
-    </Paper>
+function categoryList({ styles, categories, getBookmarksByCategory, classes, category }) {
+    return (
+        <Paper style={styles.Categories}>
+            <MenuList>
+                {categories.map(item => {
+                    return (
+                        <Fragment>
+                            <MenuItem 
+                                className={classes.menuItem} 
+                                key={item.id}
+                                onClick={() => getBookmarksByCategory(item.id)} >
+                                <ListItemText 
+                                    classes={{ primary: classes.primary }}
+                                    inset 
+                                    primary={item.name} />
+                            </MenuItem>
+                            <Divider />
+                        </Fragment>
+                    )}
+                )}
+            </MenuList>
+        </Paper>
+    )
+}
+
+categoryList.propTypes = {
+    classes: PropTypes.object.isRequired,
+    getBookmarksByCategory: PropTypes.func.isRequired,
+    categories: PropTypes.array.isRequired
+  };  
+
+export default withStyles(styles) (categoryList);
