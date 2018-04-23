@@ -9,11 +9,6 @@ body {
   flex: 1;
 }
 
-.bookmarksBlock {
-  max-height: 500px;
-  overflow-y: auto;
-}
-
 .footer {
   position: fixed;
   bottom: 10px;
