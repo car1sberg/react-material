@@ -10,6 +10,7 @@ class App extends Component {
   state = {
     bookmarks,
     categories,
+    testToggle: 'false'
   }
 
   getBookmarksByCategory = (id) => {
@@ -34,16 +35,14 @@ class App extends Component {
   }
 
   handleBookmarkCreate = (bookmark) => {
-    bookmarks.push(bookmark)
-    this.setState(({ bookmarks }) => ({
-      bookmarks: [
-        ...bookmarks,
-        bookmark
-      ]
-    }))
-    console.log('bookmarks', bookmarks)
-    console.log('bookmark', bookmark)
-    
+    bookmarks.push(bookmark);
+    this.setState({ testToggle: !this.state.testToggle })
+    // this.setState(({ bookmarks }) => ({
+    //   bookmarks: [
+    //     ...bookmarks,
+    //     bookmark
+    //   ]
+    // }))
   }
 
   render() {

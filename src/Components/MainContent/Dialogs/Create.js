@@ -41,18 +41,19 @@ export default withStyles(styles) (class extends Component {
     handleSubmit = () => {
         // TODO: validation
         const { bookmark } = this.state;
-        this.props.onCreate({
-            id: Date.now(),
-            ...bookmark
-        });
-
-        this.setState({
-            bookmark: {
-                name: '',
-                category: ''
-            },
-            open: false
-        })
+        if (bookmark.name.trim() !== '' && bookmark.category) {
+            this.props.onCreate({
+                id: Date.now(),
+                ...bookmark
+            });
+            this.setState({
+                bookmark: {
+                    name: '',
+                    category: ''
+                },
+                open: false
+            })
+        }  
     }
 
     handleToggle = () => this.setState({ open: !this.state.open })
@@ -77,28 +78,28 @@ export default withStyles(styles) (class extends Component {
                             Please, fill out the form below
                         </DialogContentText>
                         <form>
-                        <TextField
-                            className={classes.FormControl}
-                            label="Name"
-                            value={name}
-                            onChange={this.handleChange('name')}
-                            margin="normal"
-                            />
-                        <br />
-                        <FormControl>
-                            <InputLabel htmlFor="category">Category</InputLabel>
-                            <Select
+                            <TextField
                                 className={classes.FormControl}
-                                value={category}
-                                onChange={this.handleChange('category')}>
-                                {categories.map(item => 
-                                    <MenuItem 
-                                        key={item.id} 
-                                        value={item.name}>
-                                        {item.name}
-                                    </MenuItem>)}
-                            </Select>
-                        </FormControl>
+                                label="Name"
+                                value={name}
+                                onChange={this.handleChange('name')}
+                                margin="normal"
+                                />
+                            <br />
+                            <FormControl>
+                                <InputLabel htmlFor="category">Category</InputLabel>
+                                <Select
+                                    className={classes.FormControl}
+                                    value={category}
+                                    onChange={this.handleChange('category')}>
+                                    {categories.map(item => 
+                                        <MenuItem 
+                                            key={item.id} 
+                                            value={item.name}>
+                                            {item.name}
+                                        </MenuItem>)}
+                                </Select>
+                            </FormControl>
                         </form>
                     </DialogContent>
                     <DialogActions>

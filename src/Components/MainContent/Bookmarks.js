@@ -8,7 +8,7 @@ import { Delete } from '@material-ui/icons';
 
 export default ({ styles, bookmarks, getBookmarksByCategory, onDelete }) => {
     return (
-        <Paper style={styles.Bookmarks}>
+        <Paper   style={styles.Bookmarks}>
             <List component="ul">
                 {bookmarks.map(bookmark => {
                     return (
